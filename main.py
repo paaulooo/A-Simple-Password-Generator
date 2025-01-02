@@ -11,9 +11,9 @@ def password_generator(number_passwords: int, length: int):
         return f"You need a minimum password length of {minlen}"
 
     passwords = ''
-    for a in range(number_passwords):
+    for pwd in range(number_passwords):
         password = ''
-        for b in range(length):
+        for char in range(length):
             password += random.choice(chars)
         passwords += (password + '\n')
     return passwords
