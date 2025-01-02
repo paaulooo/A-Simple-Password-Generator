@@ -1,39 +1,25 @@
 import random
 
+chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:,.<>?/~`"
+minpass = 1
+minlen = 10
 
-def password_generator():
-    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_=+[]{}|;:,.<>?/~`"
-    while True:
-        number_passwords = 0
-        while number_passwords == 0:
-            number_passwords = input("How much passwords do you want? ")
-            number_passwords = int(number_passwords)
-            if number_passwords == 0:
-                print("You did not enter a number greater than 0!")
-            elif number_passwords > 0:
-                break
+def password_generator(number_passwords: int, length: int):
+    if number_passwords < minpass:
+        return f"You need a minimum of {minpass} passwords"
+    if length < minlen:
+        return f"You need a minimum password length of {minlen}"
 
-        lenght = 0
-        while lenght < 10:
-            lenght = input("How long do you want? ")
-            lenght = int(lenght)
-            if lenght < 10:
-                print("You did not enter a number greater than 10!")
-            else:
-                break
+    passwords = ''
+    for a in range(number_passwords):
+        password = ''
+        for b in range(length):
+            password += random.choice(chars)
+        passwords += (password + '\n')
+    return passwords
 
-        for pwd in range(number_passwords):
-            passwords = ""
-            for c in range(lenght):
-                passwords += random.choice(chars)
-            print(passwords)
-        again = input("Would you like to generate more passwords? ")
-        again = again[0].lower()
-        if again == "n":
-            print("Thank you for using this program!")
-            break
-        elif again != "n" and again != "y":
-            print("Please enter (Y/N) to continue")
+number_passwords = int(input(f"How many passwords do you want to generate?(minimum {minpass}): "))
+length = int(input(f"How long do you want the password to be?(minimum {minlen}): "))
 
-
-password_generator()
+output = password_generator(number_passwords=number_passwords, length=length)
+print(output)
