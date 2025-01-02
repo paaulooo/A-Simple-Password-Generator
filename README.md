@@ -1,7 +1,7 @@
 # A-Simple-Password-Generator
 A Simple Password Generator in Python 3.12
 
-How to use? 
+##How to use? 
 
 The user has to provide some values to program, such as "How much passwords do you want?", "How many characters should the password have?", "If do you want continue generating passwords or not", very basic, right?
 
