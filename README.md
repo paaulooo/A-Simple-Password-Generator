@@ -7,3 +7,6 @@ The user has to provide some values to program, such as "How much passwords do y
 
 This program is a Console Python Program, so you need to have Python 3.12 installed in your System.
 Thank you for using this basic program, Good Studies:)
+
+What do you need to execute? 
+Python 3.12+
